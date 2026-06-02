@@ -466,7 +466,7 @@ async function startSearch(){
   document.getElementById('progressLabel').textContent=`Đang truy vấn ${AUTO.length} API...`;
   document.getElementById('resultsBody').innerHTML='';
 
-  const jan=await getJAN(inn);
+  const jan=getJAN(inn);
   const total=AUTO.length;
   let done=0;
 
