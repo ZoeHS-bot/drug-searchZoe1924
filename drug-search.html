@@ -193,7 +193,7 @@ const MANUAL_COUNTRIES=[
   {country:'🇧🇬 Bulgaria',prefilled:true,note:'Trang index theo chữ cái. Dùng Ctrl+F tìm tên.',url:q=>`https://www.bda.bg/images/stories/documents/bdias/drugs2_list2_1.htm#${q[0].toUpperCase()}`},
   {country:'🇯🇵 Japan (PMDA)',prefilled:false,useJan:true,note:'Tên JAN đã copy vào clipboard. Paste vào ô 医薬品名 → 検索.',url:()=>'https://www.pmda.go.jp/PmdaSearch/iyakuSearch/',clipboard:true,isJapan:true},
   {country:'🇦🇹 Austria',prefilled:false,note:'Điền tên INN vào "Name" → Search.',url:()=>'https://medikamente.basg.gv.at/de/medicinal-products',clipboard:true},
-  {country:'🇧🇪 Belgium',prefilled:false,note:'Điền tên INN vào "Substance active" → Rechercher.',url:()=>'https://banquededonneesmedicaments.fagg-afmps.be/usage-humain',clipboard:true},
+  {country:'🇧🇪 Belgium',prefilled:true,note:'Kết quả hiện ngay theo hoạt chất — xác nhận qua ảnh.',url:q=>`https://banquededonneesmedicaments.fagg-afmps.be/usage-humain/medicaments?search=${encodeURIComponent(JSON.stringify({term:q}))}`},
   {country:'🇭🇷 Croatia',prefilled:false,note:'Điền tên INN vào "Djelatna tvar" → TRAŽI.',url:()=>'https://www.halmed.hr/Lijekovi/Baza-lijekova/',clipboard:true},
   {country:'🇪🇪 Estonia',prefilled:false,note:'Điền tên INN vào ô tìm kiếm → Otsi.',url:()=>'https://www.ravimiregister.ee/?pv=HumRavimid.Otsing',clipboard:true},
   {country:'🇫🇮 Finland',prefilled:false,note:'Điền tên INN vào ô tìm kiếm → Hae.',url:()=>'https://fimea.fi/laakehaut_ja_luettelot/laakehaku',clipboard:true},
