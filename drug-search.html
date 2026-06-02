@@ -101,7 +101,7 @@ tbody td{padding:11px 14px;vertical-align:top;line-height:1.5;}
 
 <div class="stats-bar">
   <div class="stat-pill"><span class="stat-dot dot-auto"></span><span id="autoCount">8</span> nước tự động (qua AI)</div>
-  <div class="stat-pill"><span class="stat-dot dot-manual"></span>25 nước — mở tab tra cứu</div>
+  <div class="stat-pill"><span class="stat-dot dot-manual"></span>26 nước — mở tab tra cứu</div>
   <div class="stat-pill"><span class="stat-dot" style="background:var(--blue)"></span>Nhật: tự dịch tên JAN</div>
 </div>
 
@@ -135,7 +135,7 @@ tbody td{padding:11px 14px;vertical-align:top;line-height:1.5;}
 </div>
 
 <div class="manual-section" id="manualSection" style="display:none">
-  <div class="manual-title">Mở tab tra cứu thủ công — 25 nước</div>
+  <div class="manual-title">Mở tab tra cứu thủ công — 26 nước</div>
   <div class="manual-legend">
     <div class="leg"><span class="leg-dot-green"></span>Xanh = trang mở ra có kết quả ngay</div>
     <div class="leg"><span class="leg-dot-amber"></span>Vàng = tên đã copy vào clipboard, chỉ cần Ctrl+V rồi Search</div>
@@ -190,10 +190,10 @@ const MANUAL_COUNTRIES=[
   {country:'🇱🇮 Liechtenstein',prefilled:false,note:'Trang thông tin chung. Dùng Swissmedic để tra.',url:()=>'https://www.llv.li/inhalt/1908/amtsstellen/allgemeine-informationen',clipboard:true},
   {country:'🇩🇰 Denmark',prefilled:true,note:'Kết quả hiện ngay — 279 sản phẩm allopurinol.',url:q=>`https://www.produktresume.dk/AppBuilder/search?utf8=%E2%9C%93&id=&type=&q=${encodeURIComponent(q)}&button=search`},
   {country:'🇨🇾 Cyprus',prefilled:false,note:'Điền tên vào ô "Hoạt chất" → Tìm kiếm.',url:()=>'https://www.phs.moh.gov.cy/human-search/home.xhtml?lang=en',clipboard:true},
-  {country:'🇧🇬 Bulgaria',prefilled:false,note:'Trang mở thẳng chữ cái đầu của hoạt chất (vd: A cho allopurinol). Tên đã copy → Ctrl+F → paste để tìm trong danh sách.',url:q=>`https://www.bda.bg/images/stories/documents/bdias/drugs2_list2_1.htm#${q[0].toUpperCase()}`,clipboard:true},
+  {country:'🇧🇬 Bulgaria',prefilled:true,note:'Trang index theo chữ cái. Dùng Ctrl+F tìm tên.',url:q=>`https://www.bda.bg/images/stories/documents/bdias/drugs2_list2_1.htm#${q[0].toUpperCase()}`},
   {country:'🇯🇵 Japan (PMDA)',prefilled:false,useJan:true,note:'Tên JAN đã copy vào clipboard. Paste vào ô 医薬品名 → 検索.',url:()=>'https://www.pmda.go.jp/PmdaSearch/iyakuSearch/',clipboard:true,isJapan:true},
   {country:'🇦🇹 Austria',prefilled:false,note:'Điền tên INN vào "Name" → Search.',url:()=>'https://medikamente.basg.gv.at/de/medicinal-products',clipboard:true},
-  {country:'🇧🇪 Belgium',prefilled:true,note:'Kết quả hiện ngay theo hoạt chất — xác nhận qua ảnh.',url:q=>`https://banquededonneesmedicaments.fagg-afmps.be/usage-humain/medicaments?search=${encodeURIComponent(JSON.stringify({term:q}))}`},
+  {country:'🇧🇪 Belgium',prefilled:false,note:'Điền tên INN vào "Substance active" → Rechercher.',url:()=>'https://banquededonneesmedicaments.fagg-afmps.be/usage-humain',clipboard:true},
   {country:'🇭🇷 Croatia',prefilled:false,note:'Điền tên INN vào "Djelatna tvar" → TRAŽI.',url:()=>'https://www.halmed.hr/Lijekovi/Baza-lijekova/',clipboard:true},
   {country:'🇪🇪 Estonia',prefilled:false,note:'Điền tên INN vào ô tìm kiếm → Otsi.',url:()=>'https://www.ravimiregister.ee/?pv=HumRavimid.Otsing',clipboard:true},
   {country:'🇫🇮 Finland',prefilled:false,note:'Điền tên INN vào ô tìm kiếm → Hae.',url:()=>'https://fimea.fi/laakehaut_ja_luettelot/laakehaku',clipboard:true},
