@@ -159,28 +159,78 @@ tbody td{padding:11px 14px;vertical-align:top;line-height:1.5;}
 
 <script>
 // ═══ JAN MAP ══════════════════════════════════════════════════════
-const _janCache={};
-async function getJAN(inn){
-  const key=inn.toLowerCase().trim();
-  if(_janCache[key]) return _janCache[key];
-  try{
-    const res=await fetch('https://api.anthropic.com/v1/messages',{
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({
-        model:'claude-sonnet-4-20250514',
-        max_tokens:60,
-        system:`You are a pharmacology expert. Respond ONLY with the official Japanese JAN name in katakana. No explanation. If unknown, respond: UNKNOWN`,
-        messages:[{role:'user',content:`INN: ${inn}`}]
-      })
-    });
-    const data=await res.json();
-    const janName=(data.content?.[0]?.text||'').trim();
-    const result=(janName&&janName!=='UNKNOWN')?janName:inn;
-    _janCache[key]=result;
-    return result;
-  }catch(e){ return inn; }
-}
+const JAN={
+  'amoxicillin':'アモキシシリン','paracetamol':'アセトアミノフェン',
+  'acetaminophen':'アセトアミノフェン','ibuprofen':'イブプロフェン',
+  'metformin':'メトホルミン','atorvastatin':'アトルバスタチン',
+  'omeprazole':'オメプラゾール','amlodipine':'アムロジピン',
+  'losartan':'ロサルタン','simvastatin':'シンバスタチン',
+  'aspirin':'アスピリン','acetylsalicylic acid':'アスピリン',
+  'cetirizine':'セチリジン','loratadine':'ロラタジン',
+  'allopurinol':'アロプリノール','furosemide':'フロセミド',
+  'lisinopril':'リシノプリル','warfarin':'ワルファリン',
+  'ciprofloxacin':'シプロフロキサシン','fluoxetine':'フルオキセチン',
+  'sertraline':'セルトラリン','clarithromycin':'クラリスロマイシン',
+  'azithromycin':'アジスロマイシン','pantoprazole':'パントプラゾール',
+  'esomeprazole':'エソメプラゾール','levothyroxine':'レボチロキシン',
+  'prednisolone':'プレドニゾロン','salbutamol':'サルブタモール',
+  'albuterol':'サルブタモール','montelukast':'モンテルカスト',
+  'clopidogrel':'クロピドグレル','rosuvastatin':'ロスバスタチン',
+  'gabapentin':'ガバペンチン','tramadol':'トラマドール',
+  'methotrexate':'メトトレキサート','ranitidine':'ラニチジン',
+  'doxycycline':'ドキシサイクリン','cephalexin':'セファレキシン',
+  'amoxicilline':'アモキシシリン','metoprolol':'メトプロロール',
+  'alfacalcidol':'アルファカルシドール',
+  'arginine aspartate':'アルギニンアスパラギン酸塩',
+  'arginine hydrochloride':'アルギニン塩酸塩',
+  'arginin aspartat':'アルギニンアスパラギン酸塩',
+  'arginin hydroclorid':'アルギニン塩酸塩',
+  'arginine tidiaciate':'アルギニンチジアシアート',
+  'arginin tidiaciat':'アルギニンチジアシアート',
+  'benfotiamine':'ベンフォチアミン',
+  'calcium polystyrene sulfonate':'カルシウムポリスチレンスルホン酸塩',
+  'citicoline':'シチコリン',
+  'cobamamide':'コバマミド',
+  'dibencozide':'コバマミド',
+  'deferasirox':'デフェラシロクス',
+  'dequalinium chloride':'デカリニウム塩化物',
+  'diosmin':'ジオスミン',
+  'hesperidin':'ヘスペリジン',
+  'donepezil':'ドネペジル',
+  'donepezil hydrochloride':'ドネペジル塩酸塩',
+  'edoxaban':'エドキサバントシル酸塩水和物',
+  'edoxaban tosylate hydrate':'エドキサバントシル酸塩水和物',
+  'entecavir':'エンテカビル',
+  'eperisone':'エペリゾン',
+  'eperisone hydrochloride':'エペリゾン塩酸塩',
+  'epinastine':'エピナスチン',
+  'epinastine hydrochloride':'エピナスチン塩酸塩',
+  'febuxostat':'フェブキソスタット',
+  'hydrotalcite':'ハイドロタルサイト',
+  'hydrotalcit':'ハイドロタルサイト',
+  'ketotifen':'ケトチフェン',
+  'levocetirizine':'レボセチリジン',
+  'levocetirizine hydrochloride':'レボセチリジン塩酸塩',
+  'mecobalamin':'メコバラミン',
+  'perampanel':'ペランパネル',
+  'pilocarpine':'ピロカルピン',
+  'pilocarpine hydrochloride':'ピロカルピン塩酸塩',
+  'pilocarpin hydroclorid':'ピロカルピン塩酸塩',
+  'quetiapine':'クエチアピン',
+  'riboflavin butyrate':'リボフラビン酪酸エステル',
+  'riboflavin butyrat':'リボフラビン酪酸エステル',
+  'rivaroxaban':'リバーロキサバン',
+  'sodium polystyrene sulfonate':'ポリスチレンスルホン酸ナトリウム',
+  'taurine':'タウリン',
+  'taurin':'タウリン',
+  'tocopherol acetate':'トコフェロール酢酸エステル',
+  'trimebutine':'トリメブチン',
+  'trimebutin':'トリメブチン',
+  'ubidecarenone':'ユビデカレノン',
+  'ursodeoxycholic acid':'ウルソデオキシコール酸',
+  'vonoprazan':'ボノプラザン',
+};
+const getJAN=s=>JAN[s.toLowerCase().trim()]||s;
 
 // ═══ CORS-safe fetch (thử trực tiếp, fallback proxy) ══════════════
 async function safeFetch(url){
