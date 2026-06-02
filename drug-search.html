@@ -435,7 +435,7 @@ const MANUAL=[
   {c:'🇱🇮 Liechtenstein',pf:false,cb:true,note:'Trang thông tin chung. Điền tên → Search.',url:()=>'https://www.llv.li/inhalt/1908/amtsstellen/allgemeine-informationen'},
   {c:'🇯🇵 Japan (PMDA)',pf:false,cb:true,jan:true,note:'Tên JAN đã copy vào clipboard. Paste vào ô 医薬品名 → 検索.',url:()=>'https://www.pmda.go.jp/PmdaSearch/iyakuSearch/'},
   {c:'🇦🇹 Austria',pf:false,cb:true,note:'Điền tên INN vào "Name" → Search.',url:()=>'https://medikamente.basg.gv.at/de/medicinal-products'},
-  {c:'🇧🇪 Belgium',pf:false,cb:true,note:'Điền vào "Substance active" → Rechercher.',url:()=>'https://banquededonneesmedicaments.fagg-afmps.be/usage-humain'},
+ {c:'🇧🇪 Belgium',pf:true,note:'Kết quả ngay theo tên hoạt chất.',url:q=>`https://banquededonneesmedicaments.fagg-afmps.be/usage-humain/medicaments?search=%7B"term":"${encodeURIComponent(q)}"%7D`},
   {c:'🇭🇷 Croatia',pf:false,cb:true,note:'Điền vào "Djelatna tvar" → TRAŽI.',url:()=>'https://www.halmed.hr/Lijekovi/Baza-lijekova/'},
   {c:'🇨🇾 Cyprus',pf:false,cb:true,note:'Điền vào ô "Hoạt chất" → Tìm kiếm.',url:()=>'https://www.phs.moh.gov.cy/human-search/home.xhtml?lang=en'},
   {c:'🇪🇪 Estonia',pf:false,cb:true,note:'Điền tên INN vào ô đầu tiên → Otsi.',url:()=>'https://www.ravimiregister.ee/?pv=HumRavimid.Otsing'},
