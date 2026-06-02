@@ -25,10 +25,11 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14
 .search-input:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-dim);}
 .search-input::placeholder{color:var(--text3);}
 .search-btn{background:var(--accent);color:#0A0F0A;border:none;border-radius:var(--radius);padding:13px 28px;font-size:14px;font-weight:600;cursor:pointer;transition:opacity .15s,transform .1s;white-space:nowrap;}
-.search-btn:hover{opacity:.88;} .search-btn:active{transform:scale(.97);} .search-btn:disabled{opacity:.4;cursor:not-allowed;}
+.search-btn:hover{opacity:.88;}.search-btn:active{transform:scale(.97);}.search-btn:disabled{opacity:.4;cursor:not-allowed;}
+.cors-note{margin:12px 32px 0;max-width:900px;background:rgba(91,158,255,.08);border:1px solid rgba(91,158,255,.2);border-radius:var(--radius);padding:10px 14px;font-size:12px;color:var(--blue);font-family:var(--mono);display:none;}
 .stats-bar{padding:18px 32px 0;display:flex;gap:20px;flex-wrap:wrap;}
 .stat-pill{display:flex;align-items:center;gap:6px;font-size:12px;font-family:var(--mono);color:var(--text2);}
-.stat-dot{width:7px;height:7px;border-radius:50%;} .dot-auto{background:var(--accent);} .dot-manual{background:var(--amber);}
+.stat-dot{width:7px;height:7px;border-radius:50%;}.dot-auto{background:var(--accent);}.dot-manual{background:var(--amber);}
 .progress-wrap{padding:24px 32px 0;max-width:900px;display:none;}
 .progress-label{font-family:var(--mono);font-size:11px;color:var(--text3);margin-bottom:8px;}
 .progress-bar{height:3px;background:var(--border);border-radius:2px;overflow:hidden;}
@@ -46,40 +47,43 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14
 table{width:100%;border-collapse:collapse;font-size:13px;}
 thead th{background:var(--surface);padding:11px 14px;text-align:left;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--text3);border-bottom:1px solid var(--border);white-space:nowrap;font-weight:400;}
 tbody tr{border-bottom:1px solid var(--border);transition:background .1s;}
-tbody tr:last-child{border-bottom:none;} tbody tr:hover{background:var(--surface2);}
+tbody tr:last-child{border-bottom:none;}tbody tr:hover{background:var(--surface2);}
 tbody td{padding:11px 14px;vertical-align:top;line-height:1.5;}
 .td-country{font-family:var(--mono);font-size:11px;color:var(--text2);white-space:nowrap;}
-.td-brand{font-weight:500;} .td-mono{font-family:var(--mono);font-size:11px;color:var(--text2);}
+.td-src{font-family:var(--mono);font-size:10px;opacity:.55;margin-top:2px;}
+.td-brand{font-weight:500;}
+.td-mono{font-family:var(--mono);font-size:11px;color:var(--text2);}
 .status-active{display:inline-block;background:var(--accent-dim);color:var(--accent);border-radius:4px;padding:2px 8px;font-size:10px;font-family:var(--mono);}
 .status-inactive{display:inline-block;background:var(--red-dim);color:var(--red);border-radius:4px;padding:2px 8px;font-size:10px;font-family:var(--mono);}
 .status-unknown{display:inline-block;background:var(--border);color:var(--text3);border-radius:4px;padding:2px 8px;font-size:10px;font-family:var(--mono);}
-.source-auto{color:var(--accent);font-size:10px;font-family:var(--mono);}
 .manual-section{padding:0 32px 40px;max-width:1400px;}
 .manual-title{font-family:var(--mono);font-size:11px;color:var(--amber);letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px;display:flex;align-items:center;gap:8px;}
 .manual-title::before{content:'';display:block;width:20px;height:1px;background:var(--amber);}
 .manual-legend{display:flex;gap:16px;margin-bottom:14px;flex-wrap:wrap;}
 .leg{font-size:11px;font-family:var(--mono);color:var(--text3);display:flex;align-items:center;gap:5px;}
-.leg-dot-green{width:7px;height:7px;border-radius:50%;background:var(--accent);display:inline-block;}
-.leg-dot-amber{width:7px;height:7px;border-radius:50%;background:var(--amber);display:inline-block;}
+.leg-dot-g{width:7px;height:7px;border-radius:50%;background:var(--accent);display:inline-block;}
+.leg-dot-a{width:7px;height:7px;border-radius:50%;background:var(--amber);display:inline-block;}
 .manual-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:10px;}
-.manual-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;}
-.manual-card.prefilled{border-color:rgba(79,255,176,.2);}
-.manual-card-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:4px;}
-.manual-country{font-size:13px;font-weight:500;}
-.manual-tag{font-family:var(--mono);font-size:9px;color:var(--amber);border:1px solid rgba(255,184,79,.5);border-radius:3px;padding:1px 5px;margin-left:6px;}
-.prefilled-tag{font-family:var(--mono);font-size:9px;color:var(--accent);border:1px solid rgba(79,255,176,.4);border-radius:3px;padding:1px 6px;white-space:nowrap;}
-.manual-note{font-size:11px;color:var(--text3);line-height:1.6;margin:5px 0 10px;}
-.manual-open-btn{width:100%;border:1px solid var(--amber);border-radius:5px;padding:7px;font-size:11px;font-family:var(--mono);color:var(--amber);cursor:pointer;transition:all .15s;background:var(--amber-dim);}
-.manual-open-btn:hover{background:rgba(255,184,79,.22);}
-.manual-card.prefilled .manual-open-btn{border-color:rgba(79,255,176,.5);color:var(--accent);background:var(--accent-dim2);}
-.manual-card.prefilled .manual-open-btn:hover{background:var(--accent-dim);}
+.mc{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;}
+.mc.pf{border-color:rgba(79,255,176,.25);}
+.mc-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:4px;}
+.mc-country{font-size:13px;font-weight:500;}
+.tag-jan{font-family:var(--mono);font-size:9px;color:var(--amber);border:1px solid rgba(255,184,79,.5);border-radius:3px;padding:1px 5px;margin-left:5px;}
+.tag-ok{font-family:var(--mono);font-size:9px;color:var(--accent);border:1px solid rgba(79,255,176,.4);border-radius:3px;padding:1px 6px;}
+.tag-manual{font-family:var(--mono);font-size:9px;color:var(--amber);border:1px solid rgba(255,184,79,.3);border-radius:3px;padding:1px 6px;}
+.mc-note{font-size:11px;color:var(--text3);line-height:1.6;margin:5px 0 10px;}
+.mc-btn{width:100%;border-radius:5px;padding:7px;font-size:11px;font-family:var(--mono);cursor:pointer;transition:all .15s;}
+.mc-btn.green{border:1px solid rgba(79,255,176,.5);color:var(--accent);background:var(--accent-dim2);}
+.mc-btn.green:hover{background:var(--accent-dim);}
+.mc-btn.amber{border:1px solid var(--amber);color:var(--amber);background:var(--amber-dim);}
+.mc-btn.amber:hover{background:rgba(255,184,79,.22);}
+.clip-row{background:var(--surface2);border:1px solid var(--border2);border-radius:6px;padding:8px 12px;margin-bottom:8px;display:flex;align-items:center;justify-content:space-between;gap:8px;}
+.clip-name{font-size:16px;font-weight:600;}
+.clip-btn{background:var(--accent-dim);border:1px solid var(--accent);border-radius:4px;padding:4px 10px;font-size:11px;font-family:var(--mono);color:var(--accent);cursor:pointer;white-space:nowrap;}
 .empty-state{padding:60px 32px;text-align:center;color:var(--text3);font-family:var(--mono);font-size:12px;line-height:2;}
 .empty-icon{font-size:32px;margin-bottom:12px;opacity:.4;}
 .notif{position:fixed;bottom:24px;right:24px;background:var(--surface);border:1px solid var(--border2);border-radius:var(--radius);padding:12px 16px;font-size:12px;font-family:var(--mono);color:var(--text2);max-width:340px;z-index:999;transform:translateY(80px);opacity:0;transition:all .3s;box-shadow:0 8px 32px rgba(0,0,0,.4);}
-.notif.show{transform:translateY(0);opacity:1;} .notif-accent{color:var(--accent);}
-.clip-row{background:var(--surface2);border:1px solid var(--border2);border-radius:6px;padding:8px 12px;margin-bottom:8px;display:flex;align-items:center;justify-content:space-between;gap:8px;}
-.clip-name{font-size:16px;font-weight:600;color:var(--text);}
-.clip-btn{background:var(--accent-dim);border:1px solid var(--accent);border-radius:4px;padding:4px 10px;font-size:11px;font-family:var(--mono);color:var(--accent);cursor:pointer;white-space:nowrap;flex-shrink:0;}
+.notif.show{transform:translateY(0);opacity:1;}.na{color:var(--accent);}
 </style>
 </head>
 <body>
@@ -99,8 +103,12 @@ tbody td{padding:11px 14px;vertical-align:top;line-height:1.5;}
   </div>
 </div>
 
+<div class="cors-note" id="corsNote">
+  ⚠ Một số API bị chặn CORS khi mở file:// — hãy mở file này qua <strong>Live Server</strong> (VS Code) hoặc double-click trực tiếp. Các API có CORS header sẽ vẫn hoạt động.
+</div>
+
 <div class="stats-bar">
-  <div class="stat-pill"><span class="stat-dot dot-auto"></span><span id="autoCount">8</span> nước tự động (qua AI)</div>
+  <div class="stat-pill"><span class="stat-dot dot-auto"></span>8 nước tự động (API trực tiếp)</div>
   <div class="stat-pill"><span class="stat-dot dot-manual"></span>27 nước — mở tab tra cứu</div>
   <div class="stat-pill"><span class="stat-dot" style="background:var(--blue)"></span>Nhật: tự dịch tên JAN</div>
 </div>
@@ -112,9 +120,9 @@ tbody td{padding:11px 14px;vertical-align:top;line-height:1.5;}
 
 <div id="filterBarWrap" style="display:none">
   <div class="filter-bar">
-    <button class="filter-btn active" onclick="filterResults('all',this)">Tất cả</button>
-    <button class="filter-btn" onclick="filterResults('active',this)">Còn hiệu lực</button>
-    <button class="filter-btn" onclick="filterResults('inactive',this)">Hết hiệu lực</button>
+    <button class="filter-btn active" onclick="filterR('all',this)">Tất cả</button>
+    <button class="filter-btn" onclick="filterR('active',this)">Còn hiệu lực</button>
+    <button class="filter-btn" onclick="filterR('inactive',this)">Hết hiệu lực</button>
   </div>
 </div>
 
@@ -137,8 +145,8 @@ tbody td{padding:11px 14px;vertical-align:top;line-height:1.5;}
 <div class="manual-section" id="manualSection" style="display:none">
   <div class="manual-title">Mở tab tra cứu thủ công — 27 nước</div>
   <div class="manual-legend">
-    <div class="leg"><span class="leg-dot-green"></span>Xanh = trang mở ra có kết quả ngay</div>
-    <div class="leg"><span class="leg-dot-amber"></span>Vàng = tên đã copy vào clipboard, chỉ cần Ctrl+V rồi Search</div>
+    <div class="leg"><span class="leg-dot-g"></span>Xanh = trang mở ra có kết quả ngay</div>
+    <div class="leg"><span class="leg-dot-a"></span>Vàng = tên đã copy vào clipboard → Ctrl+V rồi Search</div>
   </div>
   <div class="manual-grid" id="manualGrid"></div>
 </div>
@@ -150,8 +158,8 @@ tbody td{padding:11px 14px;vertical-align:top;line-height:1.5;}
 <div class="notif" id="notif"></div>
 
 <script>
-// ═══ JAN MAP ═══════════════════════════════════════════════════════
-const JAN_MAP={
+// ═══ JAN MAP ══════════════════════════════════════════════════════
+const JAN={
   'amoxicillin':'アモキシシリン','paracetamol':'アセトアミノフェン',
   'acetaminophen':'アセトアミノフェン','ibuprofen':'イブプロフェン',
   'metformin':'メトホルミン','atorvastatin':'アトルバスタチン',
@@ -171,147 +179,279 @@ const JAN_MAP={
   'gabapentin':'ガバペンチン','tramadol':'トラマドール',
   'methotrexate':'メトトレキサート','ranitidine':'ラニチジン',
   'doxycycline':'ドキシサイクリン','cephalexin':'セファレキシン',
+  'amoxicilline':'アモキシシリン','metoprolol':'メトプロロール',
 };
-function getJAN(s){return JAN_MAP[s.toLowerCase().trim()]||s;}
+const getJAN=s=>JAN[s.toLowerCase().trim()]||s;
 
-// ═══ MANUAL COUNTRIES ══════════════════════════════════════════════
-const MANUAL_COUNTRIES=[
-  {country:'🇦🇺 Australia',prefilled:true,note:'Trang mở ra đã lọc theo active ingredient.',url:q=>`https://www.ebs.tga.gov.au/ebs/picmi/picmirepository.nsf/PICMI?OpenForm&t=&q=${encodeURIComponent(q)}&r=&x=&a=&b=&c=`},
-  {country:'🇬🇧 UK — EMC',prefilled:true,note:'Kết quả hiện ngay theo active ingredient.',url:q=>`https://www.medicines.org.uk/emc/search?q=${encodeURIComponent(q)}&type=0`},
-  {country:'🇬🇧 UK — MHRA',prefilled:true,note:'Kết quả hiện ngay theo tên hoạt chất.',url:q=>`https://products.mhra.gov.uk/substance/?substance=${encodeURIComponent(q.toUpperCase())}`},
-  {country:'🇵🇱 Poland',prefilled:true,note:'Kết quả hiện ngay theo hoạt chất.',url:q=>`https://rejestry.ezdrowie.gov.pl/rpl/search/public?query=${encodeURIComponent(q)}&page=0&size=25`},
-  {country:'🇷🇴 Romania',prefilled:true,note:'Kết quả hiện ngay theo substanță activă.',url:q=>`https://nomenclator.anm.ro/medicamente?dci=${encodeURIComponent(q.toUpperCase()+'UM')}`},
-  {country:'🇮🇹 Italy',prefilled:true,note:'Kết quả hiện ngay theo principio attivo.',url:q=>`https://medicinali.aifa.gov.it/it/#/it/risultati?query=${encodeURIComponent(q)}&spellingCorrection=true`},
-  {country:'🇸🇪 Sweden',prefilled:true,note:'Kết quả hiện ngay theo substans (hoạt chất).',url:q=>`https://www.lakemedelsverket.se/sv/sok-lakemedelsfakta?substName=${encodeURIComponent(q)}&activeTab=1`},
-  {country:'🇭🇺 Hungary',prefilled:false,note:'⚠ Site thường không ổn định. Điền tên INN → Keresés.',url:()=>'https://ogyei.gov.hu/gyogyszeradatbazis/',clipboard:true},
-  {country:'🇱🇻 Latvia',prefilled:false,note:'Điền tên INN vào ô search → nhấn tìm kiếm.',url:()=>'https://dati.zva.gov.lv/zalu-registrs/?lang=en',clipboard:true},
-  {country:'🇮🇪 Ireland',prefilled:false,note:'Điền tên INN → Search.',url:()=>'https://www.hpra.ie/find-a-medicine/for-human-use/authorised-medicines',clipboard:true},
-  {country:'🇨🇭 Switzerland',prefilled:false,note:'Điền tên INN vào ô thuốc men (ô đầu tiên) → nhấn tìm kiếm.',url:()=>'https://www.swissmedicinfo.ch/',clipboard:true},
-  {country:'🇱🇮 Liechtenstein',prefilled:false,note:'Trang thông tin chung. Dùng Swissmedic để tra.',url:()=>'https://www.llv.li/inhalt/1908/amtsstellen/allgemeine-informationen',clipboard:true},
-  {country:'🇩🇰 Denmark',prefilled:true,note:'Kết quả hiện ngay — 279 sản phẩm allopurinol.',url:q=>`https://www.produktresume.dk/AppBuilder/search?utf8=%E2%9C%93&id=&type=&q=${encodeURIComponent(q)}&button=search`},
-  {country:'🇨🇾 Cyprus',prefilled:false,note:'Điền tên vào ô "Hoạt chất" → Tìm kiếm.',url:()=>'https://www.phs.moh.gov.cy/human-search/home.xhtml?lang=en',clipboard:true},
-  {country:'🇧🇬 Bulgaria',prefilled:true,note:'Trang index theo chữ cái. Dùng Ctrl+F tìm tên.',url:q=>`https://www.bda.bg/images/stories/documents/bdias/drugs2_list2_1.htm#${q[0].toUpperCase()}`},
-  {country:'🇯🇵 Japan (PMDA)',prefilled:false,useJan:true,note:'Tên JAN đã copy vào clipboard. Paste vào ô 医薬品名 → 検索.',url:()=>'https://www.pmda.go.jp/PmdaSearch/iyakuSearch/',clipboard:true,isJapan:true},
-  {country:'🇦🇹 Austria',prefilled:false,note:'Điền tên INN vào "Name" → Search.',url:()=>'https://medikamente.basg.gv.at/de/medicinal-products',clipboard:true},
-  {country:'🇧🇪 Belgium',prefilled:false,note:'Điền tên INN vào "Substance active" → Rechercher.',url:()=>'https://banquededonneesmedicaments.fagg-afmps.be/usage-humain',clipboard:true},
-  {country:'🇭🇷 Croatia',prefilled:false,note:'Điền tên INN vào "Djelatna tvar" → TRAŽI.',url:()=>'https://www.halmed.hr/Lijekovi/Baza-lijekova/',clipboard:true},
-  {country:'🇪🇪 Estonia',prefilled:false,note:'Điền tên INN vào ô tìm kiếm → Otsi.',url:()=>'https://www.ravimiregister.ee/?pv=HumRavimid.Otsing',clipboard:true},
-  {country:'🇫🇮 Finland',prefilled:false,note:'Điền tên INN vào ô tìm kiếm → Hae.',url:()=>'https://fimea.fi/laakehaut_ja_luettelot/laakehaku',clipboard:true},
-  {country:'🇩🇪 Germany',prefilled:false,note:'Chọn "Wirkstoffe" → điền tên INN → Suchen.',url:()=>'https://www.pharmnet-bund.de/PharmNet/EN/Public/Drug-information-system/_node.html',clipboard:true},
-  {country:'🇬🇷 Greece',prefilled:false,note:'Điền vào "Δραστική ουσία" → Αναζήτηση.',url:()=>'https://services.eof.gr/human-search/home.xhtml',clipboard:true},
-  {country:'🇮🇸 Iceland',prefilled:false,note:'Điền tên INN → nhấn kính lúp.',url:()=>'https://www.serlyfjaskra.is/',clipboard:true},
-  {country:'🇲🇹 Malta',prefilled:false,note:'Điền "Active Substance" → Search.',url:()=>'https://medicinesauthority.gov.mt/advanced-search',clipboard:true},
-  {country:'🇳🇱 Netherlands',prefilled:false,note:'Điền "Werkzame stof" → Zoeken.',url:()=>'https://www.geneesmiddeleninformatiebank.nl/ords/f?p=111:1:0::NO:1:P0_DOMAIN,P0_LANG:H,EN',clipboard:true},
-  {country:'🇵🇹 Portugal',prefilled:false,note:'Chọn "Substância Ativa" → điền INN → Pesquisar.',url:()=>'https://extranet.infarmed.pt/INFOMED-fo/pesquisa-avancada.xhtml',clipboard:true},
-  {country:'🇸🇰 Slovakia',prefilled:false,note:'Điền tên INN → Hľadať.',url:()=>'https://www.sukl.sk/hlavna-stranka/slovenska-verzia/databazy-a-servis/vyhladavanie-liekov-zdravotnickych-pomocok-a-zmien-v-liekovej-databaze/vyhladavanie-v-databaze-registrovanych-liekov?page_id=242',clipboard:true},
-  {country:'🇸🇮 Slovenia',prefilled:false,note:'Điền tên INN → Išči.',url:()=>'https://www.cbz.si/cbz/bazazdr2.nsf/Search/$searchForm?SearchView',clipboard:true},
-  {country:'🇱🇺 Luxembourg',prefilled:false,note:'Tìm tên INN trong danh sách CNS.',url:()=>'https://cns.public.lu/en/professionnels-sante/medicaments.html',clipboard:true},
+// ═══ CORS-safe fetch (thử trực tiếp, fallback proxy) ══════════════
+async function safeFetch(url){
+  // Thử trực tiếp trước
+  try{
+    const r=await fetch(url,{headers:{'Accept':'application/json'}});
+    if(r.ok) return r;
+  }catch(e){}
+  // Fallback: corsproxy.io
+  try{
+    const r=await fetch('https://corsproxy.io/?'+encodeURIComponent(url),{headers:{'Accept':'application/json'}});
+    if(r.ok) return r;
+  }catch(e){}
+  return null;
+}
+
+// ═══ 8 AUTO COUNTRIES ═════════════════════════════════════════════
+
+async function fetchDailyMed(inn){
+  try{
+    const r=await safeFetch(`https://dailymed.nlm.nih.gov/dailymed/services/v2/spls.json?query=${encodeURIComponent(inn)}&pagesize=20`);
+    if(!r) return [];
+    const d=await r.json();
+    return(d.data||[]).map(x=>({
+      country:'🇺🇸 USA',source:'DailyMed',
+      brand:x.title||'—',substance:inn.toUpperCase(),strength:'—',form:'—',
+      manufacturer:x.author?.name||'—',status:'active'
+    }));
+  }catch{return[];}
+}
+
+async function fetchOpenFDA(inn){
+  try{
+    const r=await safeFetch(`https://api.fda.gov/drug/ndc.json?search=active_ingredients.name:"${encodeURIComponent(inn.toUpperCase())}"&limit=20`);
+    if(!r) return [];
+    const d=await r.json();
+    return(d.results||[]).map(x=>({
+      country:'🇺🇸 USA',source:'openFDA',
+      brand:x.brand_name||x.generic_name||'—',
+      substance:(x.active_ingredients||[]).map(a=>`${a.name} ${a.strength||''}`).join('; ')||inn.toUpperCase(),
+      strength:(x.active_ingredients||[]).map(a=>a.strength||'').join(', ')||'—',
+      form:x.dosage_form||'—',
+      manufacturer:x.labeler_name||'—',
+      status:'active'
+    }));
+  }catch{return[];}
+}
+
+async function fetchCanada(inn){
+  try{
+    const r=await safeFetch(`https://health-products.canada.ca/api/drug/activeingredient/?lang=en&name=${encodeURIComponent(inn)}`);
+    if(!r) return [];
+    const codes=await r.json();
+    if(!Array.isArray(codes)||!codes.length) return [];
+    const ids=[...new Set(codes.map(x=>x.drug_code).filter(Boolean))].slice(0,12);
+    const results=[];
+    await Promise.allSettled(ids.map(async id=>{
+      try{
+        const r2=await safeFetch(`https://health-products.canada.ca/api/drug/drugproduct/?drug_code=${id}&lang=en`);
+        if(!r2) return;
+        const arr=await r2.json();
+        if(!arr?.length) return;
+        const p=arr[0];
+        results.push({
+          country:'🇨🇦 Canada',source:'Health Canada DPD',
+          brand:p.brand_name||'—',substance:inn.toUpperCase(),strength:'—',
+          form:p.dosage_form||'—',manufacturer:p.company_name||'—',
+          status:p.current_status_flag==='A'?'active':p.current_status_flag==='I'?'inactive':'unknown'
+        });
+      }catch{}
+    }));
+    return results;
+  }catch{return[];}
+}
+
+async function fetchSpain(inn){
+  try{
+    const r=await safeFetch(`https://cima.aemps.es/cima/rest/medicamentos?practiv1=${encodeURIComponent(inn)}&pageSize=20`);
+    if(!r) return [];
+    const d=await r.json();
+    return(d.resultados||[]).map(x=>({
+      country:'🇪🇸 Spain',source:'CIMA AEMPS',
+      brand:x.nombre||'—',
+      substance:(x.principiosActivos||[]).map(p=>`${p.nombre} ${p.cantidad||''} ${p.unidad||''}`).join('; ')||inn.toUpperCase(),
+      strength:(x.principiosActivos||[]).map(p=>`${p.cantidad||''} ${p.unidad||''}`).join(', ')||'—',
+      form:x.formaFarmaceutica?.nombre||'—',
+      manufacturer:x.labtitular||'—',
+      status:x.estado?.aut==='1'?'active':x.estado?.aut==='0'?'inactive':'unknown'
+    }));
+  }catch{return[];}
+}
+
+async function fetchNorway(inn){
+  try{
+    const r=await safeFetch(`https://www.legemiddelsok.no/_api/search/Preparater?query=${encodeURIComponent(inn)}&types=Menneske&pageSize=20`);
+    if(!r) return [];
+    const d=await r.json();
+    return(d.hits||[]).map(x=>({
+      country:'🇳🇴 Norway',source:'Legemiddelsøk',
+      brand:x.name||x.varenavn||'—',
+      substance:x.virkestoff||inn.toUpperCase(),
+      strength:x.styrke||'—',form:x.legemiddelform||'—',
+      manufacturer:x.markedsforer||x.innehaver||'—',
+      status:x.markedsfort?'active':'unknown'
+    }));
+  }catch{return[];}
+}
+
+async function fetchLithuania(inn){
+  try{
+    const r=await safeFetch(`https://vapris.vvkt.lt/vvkt-web/public/medications?activeSubstance=${encodeURIComponent(inn)}&size=20`);
+    if(!r) return [];
+    const d=await r.json();
+    const items=d.content||d||[];
+    return(Array.isArray(items)?items:[]).map(x=>({
+      country:'🇱🇹 Lithuania',source:'VAPRIS',
+      brand:x.name||x.tradeName||'—',
+      substance:x.activeSubstance||inn.toUpperCase(),
+      strength:x.strength||'—',form:x.pharmaceuticalForm||'—',
+      manufacturer:x.marketingAuthorisationHolder||x.manufacturer||'—',
+      status:x.status==='ACTIVE'?'active':x.status==='INACTIVE'?'inactive':'unknown'
+    }));
+  }catch{return[];}
+}
+
+async function fetchFrance(inn){
+  try{
+    const r=await safeFetch(`https://medicaments-api.public.gouv.fr/v1/medicaments?search=${encodeURIComponent(inn)}&limit=30`);
+    if(!r) return [];
+    const d=await r.json();
+    const items=d.data||d.medicaments||d||[];
+    if(!Array.isArray(items)||!items.length) return [];
+    return items.map(x=>({
+      country:'🇫🇷 France',source:'BDPM ANSM',
+      brand:x.denomination||x.nom||'—',
+      substance:(x.compositions||[]).map(s=>`${s.denomination_substance||''} ${s.dosage||''}`).join('; ')||inn.toUpperCase(),
+      strength:(x.compositions||[]).map(s=>s.dosage||'').filter(Boolean).join(', ')||'—',
+      form:x.forme_pharmaceutique||'—',
+      manufacturer:x.titulaire_amm||x.titulaire||'—',
+      status:x.statut_amm==='Valide'?'active':x.statut_amm?'inactive':'unknown'
+    }));
+  }catch{return[];}
+}
+
+async function fetchCzech(inn){
+  try{
+    const r1=await safeFetch(`https://prehledy.sukl.cz/api/cislenik-latky?nazev=${encodeURIComponent(inn)}&size=5`);
+    if(!r1) return [];
+    const d1=await r1.json();
+    const items1=d1.content||d1||[];
+    if(!Array.isArray(items1)||!items1.length) return [];
+    const codes=items1.map(x=>x.kod||x.code||x.id).filter(Boolean).slice(0,3);
+    if(!codes.length) return [];
+    const all=[];
+    await Promise.allSettled(codes.map(async kod=>{
+      try{
+        const r2=await safeFetch(`https://prehledy.sukl.cz/api/lecive-pripravky?kodLatky=${encodeURIComponent(kod)}&size=20`);
+        if(!r2) return;
+        const d2=await r2.json();
+        const drugs=d2.content||d2||[];
+        (Array.isArray(drugs)?drugs:[]).forEach(x=>{
+          all.push({
+            country:'🇨🇿 Czech',source:'SÚKL',
+            brand:x.nazev||x.name||'—',substance:x.latky||inn.toUpperCase(),
+            strength:x.sila||'—',form:x.formaLp||'—',manufacturer:x.drzitel||'—',
+            status:x.stavRegistrace==='P'||x.stavRegistrace==='A'?'active':x.stavRegistrace?'inactive':'unknown'
+          });
+        });
+      }catch{}
+    }));
+    return all;
+  }catch{return[];}
+}
+
+const AUTO=[
+  {country:'🇺🇸 USA',source:'DailyMed',fn:fetchDailyMed},
+  {country:'🇺🇸 USA',source:'openFDA',fn:fetchOpenFDA},
+  {country:'🇨🇦 Canada',source:'Health Canada DPD',fn:fetchCanada},
+  {country:'🇪🇸 Spain',source:'CIMA AEMPS',fn:fetchSpain},
+  {country:'🇳🇴 Norway',source:'Legemiddelsøk',fn:fetchNorway},
+  {country:'🇱🇹 Lithuania',source:'VAPRIS',fn:fetchLithuania},
+  {country:'🇫🇷 France',source:'BDPM ANSM',fn:fetchFrance},
+  {country:'🇨🇿 Czech',source:'SÚKL',fn:fetchCzech},
 ];
 
-// ═══ ANTHROPIC API PROXY ════════════════════════════════════════════
-// Dùng Claude để gọi các drug API — vượt CORS hoàn toàn
-async function queryViaAI(inn) {
-  const prompt = `You are a drug database API caller. Search for the active ingredient "${inn}" in these databases and return results as JSON.
+// ═══ 27 MANUAL COUNTRIES ══════════════════════════════════════════
+// pf=prefilled(kết quả ngay), cb=clipboard
+const MANUAL=[
+  {c:'🇦🇺 Australia',pf:true,note:'Kết quả ngay theo active ingredient.',url:q=>`https://www.ebs.tga.gov.au/ebs/picmi/picmirepository.nsf/PICMI?OpenForm&t=&q=${encodeURIComponent(q)}&r=&x=&a=&b=&c=`},
+  {c:'🇬🇧 UK — EMC',pf:true,note:'Kết quả ngay theo active ingredient.',url:q=>`https://www.medicines.org.uk/emc/search?q=${encodeURIComponent(q)}&type=0`},
+  {c:'🇬🇧 UK — MHRA',pf:true,note:'Kết quả ngay theo tên hoạt chất.',url:q=>`https://products.mhra.gov.uk/substance/?substance=${encodeURIComponent(q.toUpperCase())}`},
+  {c:'🇵🇱 Poland',pf:true,note:'Kết quả ngay theo hoạt chất.',url:q=>`https://rejestry.ezdrowie.gov.pl/rpl/search/public?query=${encodeURIComponent(q)}&page=0&size=25`},
+  {c:'🇷🇴 Romania',pf:true,note:'Kết quả ngay theo substanță activă.',url:q=>`https://nomenclator.anm.ro/medicamente?substanta=${encodeURIComponent(q)}`},
+  {c:'🇮🇹 Italy',pf:true,note:'Kết quả ngay theo principio attivo.',url:q=>`https://medicinali.aifa.gov.it/it/#/it/risultati?query=${encodeURIComponent(q)}&spellingCorrection=true`},
+  {c:'🇸🇪 Sweden',pf:true,note:'Kết quả ngay theo substans.',url:q=>`https://www.lakemedelsverket.se/sv/sok-lakemedelsfakta?substName=${encodeURIComponent(q)}&activeTab=1`},
+  {c:'🇩🇰 Denmark',pf:true,note:'Kết quả ngay.',url:q=>`https://www.produktresume.dk/AppBuilder/search?utf8=%E2%9C%93&id=&type=&q=${encodeURIComponent(q)}&button=search`},
+  {c:'🇮🇪 Ireland',pf:true,note:'Kết quả ngay theo active substance.',url:q=>`https://www.hpra.ie/find-a-medicine/for-human-use/authorised-medicines?activesubstance=${encodeURIComponent(q)}`},
+  {c:'🇱🇻 Latvia',pf:true,note:'Kết quả ngay theo active substance.',url:q=>`https://dati.zva.gov.lv/zalu-registrs/?atslvard=${encodeURIComponent(q)}&lang=en`},
+  {c:'🇨🇭 Switzerland',pf:true,note:'Kết quả ngay theo Wirkstoff.',url:q=>`https://www.swissmedicinfo.ch/?lng=DE&search=${encodeURIComponent(q)}`},
+  {c:'🇭🇺 Hungary',pf:true,note:'Kết quả ngay theo hatóanyag. (Site đôi khi không ổn định)',url:q=>`https://ogyei.gov.hu/gyogyszeradatbazis/?hatanyag=${encodeURIComponent(q)}&kereses=1`},
+  {c:'🇧🇬 Bulgaria',pf:true,note:'Index A-Z — trang mở thẳng chữ cái đầu. Dùng Ctrl+F tìm tên.',url:q=>`https://www.bda.bg/images/stories/documents/bdias/drugs2_list2_1.htm#${q[0].toUpperCase()}`},
+  {c:'🇱🇮 Liechtenstein',pf:false,cb:true,note:'Trang thông tin chung. Điền tên → Search.',url:()=>'https://www.llv.li/inhalt/1908/amtsstellen/allgemeine-informationen'},
+  {c:'🇯🇵 Japan (PMDA)',pf:false,cb:true,jan:true,note:'Tên JAN đã copy vào clipboard. Paste vào ô 医薬品名 → 検索.',url:()=>'https://www.pmda.go.jp/PmdaSearch/iyakuSearch/'},
+  {c:'🇦🇹 Austria',pf:false,cb:true,note:'Điền tên INN vào "Name" → Search.',url:()=>'https://medikamente.basg.gv.at/de/medicinal-products'},
+  {c:'🇧🇪 Belgium',pf:false,cb:true,note:'Điền vào "Substance active" → Rechercher.',url:()=>'https://banquededonneesmedicaments.fagg-afmps.be/usage-humain'},
+  {c:'🇭🇷 Croatia',pf:false,cb:true,note:'Điền vào "Djelatna tvar" → TRAŽI.',url:()=>'https://www.halmed.hr/Lijekovi/Baza-lijekova/'},
+  {c:'🇨🇾 Cyprus',pf:false,cb:true,note:'Điền vào ô "Hoạt chất" → Tìm kiếm.',url:()=>'https://www.phs.moh.gov.cy/human-search/home.xhtml?lang=en'},
+  {c:'🇪🇪 Estonia',pf:false,cb:true,note:'Điền tên INN vào ô đầu tiên → Otsi.',url:()=>'https://www.ravimiregister.ee/?pv=HumRavimid.Otsing'},
+  {c:'🇫🇮 Finland',pf:false,cb:true,note:'Điền tên INN → Hae.',url:()=>'https://fimea.fi/laakehaut_ja_luettelot/laakehaku'},
+  {c:'🇩🇪 Germany',pf:false,cb:true,note:'Chọn "Wirkstoffe" → điền INN → Suchen.',url:()=>'https://www.pharmnet-bund.de/PharmNet/EN/Public/Drug-information-system/_node.html'},
+  {c:'🇬🇷 Greece',pf:false,cb:true,note:'Điền vào "Δραστική ουσία" → Αναζήτηση.',url:()=>'https://services.eof.gr/human-search/home.xhtml'},
+  {c:'🇮🇸 Iceland',pf:false,cb:true,note:'Điền tên INN → nhấn kính lúp.',url:()=>'https://www.serlyfjaskra.is/'},
+  {c:'🇲🇹 Malta',pf:false,cb:true,note:'Điền "Active Substance" → Search.',url:()=>'https://medicinesauthority.gov.mt/advanced-search'},
+  {c:'🇳🇱 Netherlands',pf:false,cb:true,note:'Điền "Werkzame stof" → Zoeken.',url:()=>'https://www.geneesmiddeleninformatiebank.nl/ords/f?p=111:1:0::NO:1:P0_DOMAIN,P0_LANG:H,EN'},
+  {c:'🇵🇹 Portugal',pf:false,cb:true,note:'Chọn "Substância Ativa" → điền INN → Pesquisar.',url:()=>'https://extranet.infarmed.pt/INFOMED-fo/pesquisa-avancada.xhtml'},
+  {c:'🇸🇰 Slovakia',pf:false,cb:true,note:'Điền tên INN → Hľadať.',url:()=>'https://www.sukl.sk/hlavna-stranka/slovenska-verzia/databazy-a-servis/vyhladavanie-liekov-zdravotnickych-pomocok-a-zmien-v-liekovej-databaze/vyhladavanie-v-databaze-registrovanych-liekov?page_id=242'},
+  {c:'🇸🇮 Slovenia',pf:false,cb:true,note:'Điền tên INN → Išči.',url:()=>'https://www.cbz.si/cbz/bazazdr2.nsf/Search/$searchForm?SearchView'},
+  {c:'🇱🇺 Luxembourg',pf:false,cb:true,note:'Tìm tên INN trong danh sách CNS.',url:()=>'https://cns.public.lu/en/professionnels-sante/medicaments.html'},
+];
 
-Call these APIs and return ALL results:
-1. DailyMed (USA): GET https://dailymed.nlm.nih.gov/dailymed/services/v2/spls.json?query=${encodeURIComponent(inn)}&pagesize=20
-2. openFDA (USA): GET https://api.fda.gov/drug/ndc.json?search=active_ingredients.name:"${inn.toUpperCase()}"&limit=20
-3. Health Canada: GET https://health-products.canada.ca/api/drug/activeingredient/?lang=en&name=${encodeURIComponent(inn)}
-4. Spain CIMA: GET https://cima.aemps.es/cima/rest/medicamentos?practiv1=${encodeURIComponent(inn)}&pageSize=20
-5. Norway Legemiddelsøk: GET https://www.legemiddelsok.no/_api/search/Preparater?query=${encodeURIComponent(inn)}&types=Menneske&pageSize=20
-6. Lithuania VAPRIS: GET https://vapris.vvkt.lt/vvkt-web/public/medications?activeSubstance=${encodeURIComponent(inn)}&size=20
-7. France BDPM: GET https://medicaments-api.public.gouv.fr/v1/medicaments?search=${encodeURIComponent(inn)}&limit=30
-8. Czech SÚKL step1: GET https://prehledy.sukl.cz/api/cislenik-latky?nazev=${encodeURIComponent(inn)}&size=5  then step2 for each code: GET https://prehledy.sukl.cz/api/lecive-pripravky?kodLatky={code}&size=20
+// ═══ MAIN SEARCH ══════════════════════════════════════════════════
+let allResults=[];
 
-Return ONLY a valid JSON array, no other text. Each element must have these exact fields:
-- country: country name with flag emoji
-- source: database name  
-- brand: brand/trade name of the product
-- substance: active ingredient + strength (e.g. "ALLOPURINOL 100 mg")
-- form: pharmaceutical form (tablet, capsule, injection, etc.)
-- manufacturer: MAH or manufacturer name
-- status: "active", "inactive", or "unknown"
+async function startSearch(){
+  const inn=document.getElementById('searchInput').value.trim();
+  if(!inn){showNotif('⚠ Vui lòng nhập tên hoạt chất');return;}
 
-If a database returns no results or errors, skip it. Return maximum 20 results per database.
-Return ONLY the JSON array, starting with [ and ending with ].`;
+  allResults=[];
+  ['emptyState','resultsWrap','manualSection','filterBarWrap'].forEach(id=>document.getElementById(id).style.display='none');
+  document.getElementById('searchBtn').disabled=true;
+  document.getElementById('progressWrap').style.display='block';
+  document.getElementById('progressFill').style.width='0%';
+  document.getElementById('progressLabel').textContent=`Đang truy vấn ${AUTO.length} API...`;
+  document.getElementById('resultsBody').innerHTML='';
 
-  const response = await fetch('https://api.anthropic.com/v1/messages', {
-    method: 'POST',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify({
-      model: 'claude-sonnet-4-20250514',
-      max_tokens: 8000,
-      tools: [{type: 'web_search_20250305', name: 'web_search'}],
-      messages: [{role: 'user', content: prompt}]
-    })
-  });
+  const jan=getJAN(inn);
+  const total=AUTO.length;
+  let done=0;
 
-  if (!response.ok) throw new Error(`API ${response.status}`);
-  const data = await response.json();
-  
-  // Extract text from response (may include tool use blocks)
-  const text = data.content
-    .filter(b => b.type === 'text')
-    .map(b => b.text)
-    .join('');
-  
-  // Parse JSON array from response
-  const match = text.match(/\[[\s\S]*\]/);
-  if (!match) return [];
-  return JSON.parse(match[0]);
+  await Promise.allSettled(AUTO.map(async cfg=>{
+    const rows=await cfg.fn(inn);
+    done++;
+    const pct=Math.round(done/total*90);
+    document.getElementById('progressFill').style.width=pct+'%';
+    document.getElementById('progressLabel').textContent=`${cfg.country} (${cfg.source}) — ${rows.length} sản phẩm`;
+    if(rows.length){
+      const tbody=document.getElementById('resultsBody');
+      rows.forEach(row=>{allResults.push(row);appendRow(tbody,row);});
+      document.getElementById('resultsWrap').style.display='block';
+      document.getElementById('filterBarWrap').style.display='block';
+      updateCount();
+    }
+  }));
+
+  document.getElementById('progressFill').style.width='100%';
+  document.getElementById('progressLabel').textContent=`✓ Hoàn tất — ${allResults.length} sản phẩm tự động`;
+  document.getElementById('resultsWrap').style.display='block';
+  document.getElementById('filterBarWrap').style.display='block';
+  document.getElementById('searchBtn').disabled=false;
+  updateCount();
+  buildManual(inn,jan);
+  setTimeout(()=>{document.getElementById('progressWrap').style.display='none';},2500);
+  showNotif(`<span class="na">✓ ${allResults.length} sản phẩm</span> từ 8 API — mở tab bên dưới để tra thêm`);
 }
 
-// ═══ MAIN SEARCH ════════════════════════════════════════════════════
-let allResults = [];
-
-async function startSearch() {
-  const inn = document.getElementById('searchInput').value.trim();
-  if (!inn) { showNotif('⚠ Vui lòng nhập tên hoạt chất'); return; }
-
-  allResults = [];
-  document.getElementById('emptyState').style.display = 'none';
-  document.getElementById('resultsWrap').style.display = 'none';
-  document.getElementById('manualSection').style.display = 'none';
-  document.getElementById('filterBarWrap').style.display = 'none';
-  document.getElementById('searchBtn').disabled = true;
-  document.getElementById('progressWrap').style.display = 'block';
-  document.getElementById('progressFill').style.width = '10%';
-  document.getElementById('progressLabel').textContent = 'Đang truy vấn 8 database qua AI...';
-  document.getElementById('resultsBody').innerHTML = '';
-
-  const jan = getJAN(inn);
-
-  try {
-    document.getElementById('progressFill').style.width = '40%';
-    const rows = await queryViaAI(inn);
-    document.getElementById('progressFill').style.width = '90%';
-    
-    const tbody = document.getElementById('resultsBody');
-    rows.forEach(row => {
-      allResults.push(row);
-      appendRow(tbody, row);
-    });
-    
-    document.getElementById('resultsWrap').style.display = 'block';
-    document.getElementById('filterBarWrap').style.display = 'block';
-    updateCount();
-    showNotif(`<span class="notif-accent">✓ ${rows.length} sản phẩm</span> từ 8 database`);
-  } catch(e) {
-    showNotif('⚠ Lỗi kết nối API: ' + e.message);
-  }
-
-  document.getElementById('progressFill').style.width = '100%';
-  document.getElementById('progressLabel').textContent = `✓ Hoàn tất — ${allResults.length} sản phẩm`;
-  document.getElementById('searchBtn').disabled = false;
-  setTimeout(() => { document.getElementById('progressWrap').style.display = 'none'; }, 2000);
-  buildManualSection(inn, jan);
-}
-
-function appendRow(tbody, row) {
-  const tr = document.createElement('tr');
-  tr.dataset.status = row.status || 'unknown';
-  tr.innerHTML = `
-    <td><div class="td-country">${esc(row.country)}</div><div class="td-mono" style="font-size:10px;opacity:.6;margin-top:2px">${esc(row.source)}</div></td>
+function appendRow(tbody,row){
+  const tr=document.createElement('tr');
+  tr.dataset.status=row.status||'unknown';
+  tr.innerHTML=`
+    <td><div class="td-country">${esc(row.country)}</div><div class="td-src">${esc(row.source)}</div></td>
     <td><div class="td-brand">${esc(row.brand)}</div></td>
     <td><div class="td-mono">${esc(row.substance)}</div></td>
     <td><div class="td-mono">${esc(row.form)}</div></td>
@@ -320,90 +460,87 @@ function appendRow(tbody, row) {
   tbody.appendChild(tr);
 }
 
-function esc(s) { return s ? String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;') : '—'; }
-function updateCount() {
-  const v = document.querySelectorAll('#resultsBody tr:not([style*="display: none"])').length;
-  document.getElementById('resultsCount').textContent = `${v} sản phẩm`;
+function esc(s){return s?String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'):'—';}
+function updateCount(){
+  const v=document.querySelectorAll('#resultsBody tr:not([style*="display: none"])').length;
+  document.getElementById('resultsCount').textContent=`${v} sản phẩm`;
 }
-function filterResults(type, btn) {
-  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+function filterR(type,btn){
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
-  document.querySelectorAll('#resultsBody tr').forEach(tr => {
-    let show = true;
-    if (type === 'active') show = tr.dataset.status === 'active';
-    if (type === 'inactive') show = tr.dataset.status === 'inactive';
-    tr.style.display = show ? '' : 'none';
+  document.querySelectorAll('#resultsBody tr').forEach(tr=>{
+    let show=true;
+    if(type==='active') show=tr.dataset.status==='active';
+    if(type==='inactive') show=tr.dataset.status==='inactive';
+    tr.style.display=show?'':'none';
   });
   updateCount();
 }
 
-// ═══ MANUAL SECTION ═════════════════════════════════════════════════
-function buildManualSection(inn, jan) {
-  const grid = document.getElementById('manualGrid');
-  grid.innerHTML = '';
+// ═══ MANUAL SECTION ═══════════════════════════════════════════════
+function buildManual(inn,jan){
+  const grid=document.getElementById('manualGrid');
+  grid.innerHTML='';
+  MANUAL.forEach(cfg=>{
+    const copyName=cfg.jan?jan:inn;
+    const url=cfg.jan?cfg.url(inn,jan):cfg.url(inn);
+    const urlSafe=url.replace(/\\/g,'\\\\').replace(/'/g,"\\'");
+    const copyNameSafe=copyName.replace(/\\/g,'\\\\').replace(/'/g,"\\'");
+    const div=document.createElement('div');
+    div.className='mc'+(cfg.pf?' pf':'');
 
-  MANUAL_COUNTRIES.forEach(cfg => {
-    const isPrefilled = cfg.prefilled;
-    const copyName = cfg.isJapan ? jan : inn;
-    const url = cfg.useJan ? cfg.url(inn, jan) : cfg.url(inn);
-    const div = document.createElement('div');
-    div.className = 'manual-card' + (isPrefilled ? ' prefilled' : '');
+    const janTag=cfg.jan?`<span class="tag-jan">JAN: ${jan}</span>`:'';
+    const badge=cfg.pf
+      ?`<span class="tag-ok">✓ kết quả ngay</span>`
+      :`<span class="tag-manual">✎ Ctrl+V rồi Search</span>`;
 
-    const janTag = cfg.isJapan ? `<span class="manual-tag">JAN: ${jan}</span>` : '';
-    const badge = isPrefilled
-      ? `<span class="prefilled-tag">✓ kết quả ngay</span>`
-      : `<span style="font-size:10px;color:var(--amber);font-family:var(--mono)">✎ Ctrl+V sau khi mở</span>`;
-
-    const copyNameSafe = copyName.replace(/\\/g,'\\\\').replace(/'/g,"\\'");
-    const urlSafe = url.replace(/\\/g,'\\\\').replace(/'/g,"\\'");
-
-    if (cfg.clipboard || cfg.isJapan) {
-      div.innerHTML = `
-        <div class="manual-card-head"><div class="manual-country">${cfg.country}${janTag}</div>${badge}</div>
+    if(cfg.cb){
+      div.innerHTML=`
+        <div class="mc-head"><div class="mc-country">${cfg.c}${janTag}</div>${badge}</div>
         <div class="clip-row">
           <span class="clip-name">${copyName}</span>
           <button class="clip-btn" onclick="doCopy('${copyNameSafe}',this)">Copy</button>
         </div>
-        <div class="manual-note">${cfg.note}</div>
-        <button class="manual-open-btn" onclick="doCopy('${copyNameSafe}',null);window.open('${urlSafe}','_blank')">Copy + Mở trang →</button>`;
+        <div class="mc-note">${cfg.note}</div>
+        <button class="mc-btn amber" onclick="doCopy('${copyNameSafe}',null);window.open('${urlSafe}','_blank')">Copy + Mở trang →</button>`;
     } else {
-      div.innerHTML = `
-        <div class="manual-card-head"><div class="manual-country">${cfg.country}${janTag}</div>${badge}</div>
-        <div class="manual-note">${cfg.note}</div>
-        <button class="manual-open-btn" onclick="window.open('${urlSafe}','_blank')">Mở trang tra cứu →</button>`;
+      div.innerHTML=`
+        <div class="mc-head"><div class="mc-country">${cfg.c}${janTag}</div>${badge}</div>
+        <div class="mc-note">${cfg.note}</div>
+        <button class="mc-btn green" onclick="window.open('${urlSafe}','_blank')">Mở trang tra cứu →</button>`;
     }
     grid.appendChild(div);
   });
-  document.getElementById('manualSection').style.display = 'block';
+  document.getElementById('manualSection').style.display='block';
 }
 
-function doCopy(text, btn) {
-  navigator.clipboard.writeText(text).then(() => {
-    if (btn) { btn.textContent = '✓'; setTimeout(() => btn.textContent = 'Copy', 1500); }
-  }).catch(() => {});
+function doCopy(text,btn){
+  navigator.clipboard.writeText(text).then(()=>{
+    if(btn){btn.textContent='✓';setTimeout(()=>btn.textContent='Copy',1500);}
+  }).catch(()=>{});
 }
 
-// ═══ EXPORT ═════════════════════════════════════════════════════════
-function exportCSV() {
-  if (!allResults.length) { showNotif('Chưa có dữ liệu để xuất'); return; }
-  const h = ['Quốc gia','Nguồn','Tên thương mại','Hoạt chất + Hàm lượng','Dạng bào chế','Hãng sản xuất / MAH','Trạng thái'];
-  const rows = allResults.map(r => [r.country, r.source, r.brand, r.substance, r.form, r.manufacturer, r.status]);
-  const csv = [h, ...rows].map(r => r.map(c => `"${String(c||'').replace(/"/g,'""')}"`).join(',')).join('\n');
-  const blob = new Blob(['\uFEFF' + csv], {type: 'text/csv;charset=utf-8;'});
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = `drug_search_${document.getElementById('searchInput').value.trim()}_${new Date().toISOString().slice(0,10)}.csv`;
+// ═══ EXPORT ═══════════════════════════════════════════════════════
+function exportCSV(){
+  if(!allResults.length){showNotif('Chưa có dữ liệu để xuất');return;}
+  const h=['Quốc gia','Nguồn','Tên thương mại','Hoạt chất + Hàm lượng','Dạng bào chế','Hãng sản xuất / MAH','Trạng thái'];
+  const rows=allResults.map(r=>[r.country,r.source,r.brand,r.substance,r.form,r.manufacturer,r.status]);
+  const csv=[h,...rows].map(r=>r.map(c=>`"${String(c||'').replace(/"/g,'""')}"`).join(',')).join('\n');
+  const blob=new Blob(['\uFEFF'+csv],{type:'text/csv;charset=utf-8;'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download=`drug_search_${document.getElementById('searchInput').value.trim()}_${new Date().toISOString().slice(0,10)}.csv`;
   a.click();
   showNotif('✓ Đã xuất file CSV');
 }
 
 let _nt;
-function showNotif(msg) {
-  const el = document.getElementById('notif');
-  el.innerHTML = msg; el.classList.add('show');
-  clearTimeout(_nt); _nt = setTimeout(() => el.classList.remove('show'), 4500);
+function showNotif(msg){
+  const el=document.getElementById('notif');
+  el.innerHTML=msg;el.classList.add('show');
+  clearTimeout(_nt);_nt=setTimeout(()=>el.classList.remove('show'),4500);
 }
-document.getElementById('searchInput').addEventListener('keydown', e => { if (e.key === 'Enter') startSearch(); });
+document.getElementById('searchInput').addEventListener('keydown',e=>{if(e.key==='Enter')startSearch();});
 </script>
 </body>
 </html>
