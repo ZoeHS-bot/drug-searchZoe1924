@@ -94,7 +94,7 @@ tbody td{padding:11px 14px;vertical-align:top;line-height:1.5;}
 <div class="search-wrap">
   <div class="search-label">Nhập tên hoạt chất (INN)</div>
   <div class="search-row">
-    <input type="text" class="search-input" id="searchInput" placeholder="vd: amoxicillin, metformin..." autocomplete="off"/>
+    <input type="text" class="search-input" id="searchInput" placeholder="vd: amoxicillin, allopurinol, metformin..." autocomplete="off"/>
     <button class="search-btn" id="searchBtn" onclick="startSearch()">Tìm kiếm</button>
   </div>
 </div>
@@ -172,34 +172,7 @@ const JAN_MAP={
   'methotrexate':'メトトレキサート','ranitidine':'ラニチジン',
   'doxycycline':'ドキシサイクリン','cephalexin':'セファレキシン',
 };
-async function getJAN(s) {
-
-    const key = s.toLowerCase().trim();
-
-    // Có trong JAN_MAP
-    if (JAN_MAP[key]) {
-        return JAN_MAP[key];
-    }
-
-    // Không có thì dịch sang tiếng Nhật
-    try {
-
-        const res = await fetch(
-            "https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=ja&dt=t&q=" +
-            encodeURIComponent(s)
-        );
-
-        const data = await res.json();
-
-        return data[0][0][0];
-
-    } catch(e) {
-
-        console.error(e);
-
-        return s;
-    }
-}
+function getJAN(s){return JAN_MAP[s.toLowerCase().trim()]||s;}
 
 // ═══ MANUAL COUNTRIES ══════════════════════════════════════════════
 const MANUAL_COUNTRIES=[
@@ -220,7 +193,7 @@ const MANUAL_COUNTRIES=[
   {country:'🇧🇬 Bulgaria',prefilled:true,note:'Trang index theo chữ cái. Dùng Ctrl+F tìm tên.',url:q=>`https://www.bda.bg/images/stories/documents/bdias/drugs2_list2_1.htm#${q[0].toUpperCase()}`},
   {country:'🇯🇵 Japan (PMDA)',prefilled:false,useJan:true,note:'Tên JAN đã copy vào clipboard. Paste vào ô 医薬品名 → 検索.',url:()=>'https://www.pmda.go.jp/PmdaSearch/iyakuSearch/',clipboard:true,isJapan:true},
   {country:'🇦🇹 Austria',prefilled:false,note:'Điền tên INN vào "Name" → Search.',url:()=>'https://medikamente.basg.gv.at/de/medicinal-products',clipboard:true},
-  {country:'🇧🇪 Belgium',prefilled:true,note:'Kết quả hiện ngay theo hoạt chất — xác nhận qua ảnh.',url:q=>`https://banquededonneesmedicaments.fagg-afmps.be/usage-humain/medicaments?search=${encodeURIComponent(JSON.stringify({term:q}))}`},
+  {country:'🇧🇪 Belgium',prefilled:false,note:'Điền tên INN vào "Substance active" → Rechercher.',url:()=>'https://banquededonneesmedicaments.fagg-afmps.be/usage-humain',clipboard:true},
   {country:'🇭🇷 Croatia',prefilled:false,note:'Điền tên INN vào "Djelatna tvar" → TRAŽI.',url:()=>'https://www.halmed.hr/Lijekovi/Baza-lijekova/',clipboard:true},
   {country:'🇪🇪 Estonia',prefilled:false,note:'Điền tên INN vào ô tìm kiếm → Otsi.',url:()=>'https://www.ravimiregister.ee/?pv=HumRavimid.Otsing',clipboard:true},
   {country:'🇫🇮 Finland',prefilled:false,note:'Điền tên INN vào ô tìm kiếm → Hae.',url:()=>'https://fimea.fi/laakehaut_ja_luettelot/laakehaku',clipboard:true},
@@ -306,7 +279,7 @@ async function startSearch() {
   document.getElementById('progressLabel').textContent = 'Đang truy vấn 8 database qua AI...';
   document.getElementById('resultsBody').innerHTML = '';
 
-  const jan = await getJAN(drugName);
+  const jan = getJAN(inn);
 
   try {
     document.getElementById('progressFill').style.width = '40%';
