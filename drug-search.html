@@ -101,7 +101,7 @@ tbody td{padding:11px 14px;vertical-align:top;line-height:1.5;}
 
 <div class="stats-bar">
   <div class="stat-pill"><span class="stat-dot dot-auto"></span><span id="autoCount">8</span> nước tự động (qua AI)</div>
-  <div class="stat-pill"><span class="stat-dot dot-manual"></span>26 nước — mở tab tra cứu</div>
+  <div class="stat-pill"><span class="stat-dot dot-manual"></span>27 nước — mở tab tra cứu</div>
   <div class="stat-pill"><span class="stat-dot" style="background:var(--blue)"></span>Nhật: tự dịch tên JAN</div>
 </div>
 
@@ -135,7 +135,7 @@ tbody td{padding:11px 14px;vertical-align:top;line-height:1.5;}
 </div>
 
 <div class="manual-section" id="manualSection" style="display:none">
-  <div class="manual-title">Mở tab tra cứu thủ công — 26 nước</div>
+  <div class="manual-title">Mở tab tra cứu thủ công — 27 nước</div>
   <div class="manual-legend">
     <div class="leg"><span class="leg-dot-green"></span>Xanh = trang mở ra có kết quả ngay</div>
     <div class="leg"><span class="leg-dot-amber"></span>Vàng = tên đã copy vào clipboard, chỉ cần Ctrl+V rồi Search</div>
@@ -183,10 +183,10 @@ const MANUAL_COUNTRIES=[
   {country:'🇷🇴 Romania',prefilled:true,note:'Kết quả hiện ngay theo substanță activă.',url:q=>`https://nomenclator.anm.ro/medicamente?dci=${encodeURIComponent(q.toUpperCase()+'UM')}`},
   {country:'🇮🇹 Italy',prefilled:true,note:'Kết quả hiện ngay theo principio attivo.',url:q=>`https://medicinali.aifa.gov.it/it/#/it/risultati?query=${encodeURIComponent(q)}&spellingCorrection=true`},
   {country:'🇸🇪 Sweden',prefilled:true,note:'Kết quả hiện ngay theo substans (hoạt chất).',url:q=>`https://www.lakemedelsverket.se/sv/sok-lakemedelsfakta?substName=${encodeURIComponent(q)}&activeTab=1`},
-  {country:'🇭🇺 Hungary',prefilled:false,note:'Tên INN đã copy. Paste vào ô "Hatóanyag neve" → nhấn Keresés. (OGYEI/NNGYK — db chính thống Hungary)',url:()=>'https://ogyei.gov.hu/gyogyszeradatbazis/',clipboard:true},
-  {country:'🇱🇻 Latvia',prefilled:true,note:'Kết quả hiện ngay — lọc theo hoạt chất (NAC=on, SAT=on, DEC=on).',url:q=>`https://dati.zva.gov.lv/zalu-registrs/en/?iss=1&q=${encodeURIComponent(q)}&IK-1=1&IK-2=2&NAC=on&SAT=on&DEC=on`},
-  {country:'🇮🇪 Ireland',prefilled:false,note:'Tên INN đã copy. Paste vào ô search → nhấn kính lúp. (URL Ireland dùng base64 encoded state, không search được qua URL param)',url:()=>'https://www.hpra.ie/find-a-medicine/for-human-use/authorised-medicines',clipboard:true},
-  {country:'🇨🇭 Switzerland',prefilled:false,note:'Tên INN đã copy vào clipboard. Paste vào ô "Hoạt chất" (dropdown giữa) → nhấn "Tìm kiếm mã gói". Kết quả xuất hiện ngay bên dưới.',url:()=>'https://www.swissmedicinfo.ch/SearchPage',clipboard:true},
+  {country:'🇭🇺 Hungary',prefilled:false,note:'⚠ Site thường không ổn định. Điền tên INN → Keresés.',url:()=>'https://ogyei.gov.hu/gyogyszeradatbazis/',clipboard:true},
+  {country:'🇱🇻 Latvia',prefilled:false,note:'Điền tên INN vào ô search → nhấn tìm kiếm.',url:()=>'https://dati.zva.gov.lv/zalu-registrs/?lang=en',clipboard:true},
+  {country:'🇮🇪 Ireland',prefilled:false,note:'Điền tên INN → Search.',url:()=>'https://www.hpra.ie/find-a-medicine/for-human-use/authorised-medicines',clipboard:true},
+  {country:'🇨🇭 Switzerland',prefilled:false,note:'Điền tên INN vào ô thuốc men (ô đầu tiên) → nhấn tìm kiếm.',url:()=>'https://www.swissmedicinfo.ch/',clipboard:true},
   {country:'🇱🇮 Liechtenstein',prefilled:false,note:'Trang thông tin chung. Dùng Swissmedic để tra.',url:()=>'https://www.llv.li/inhalt/1908/amtsstellen/allgemeine-informationen',clipboard:true},
   {country:'🇩🇰 Denmark',prefilled:true,note:'Kết quả hiện ngay — 279 sản phẩm allopurinol.',url:q=>`https://www.produktresume.dk/AppBuilder/search?utf8=%E2%9C%93&id=&type=&q=${encodeURIComponent(q)}&button=search`},
   {country:'🇨🇾 Cyprus',prefilled:false,note:'Điền tên vào ô "Hoạt chất" → Tìm kiếm.',url:()=>'https://www.phs.moh.gov.cy/human-search/home.xhtml?lang=en',clipboard:true},
