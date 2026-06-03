@@ -281,11 +281,11 @@ async function fetchOpenFDA(inn){
 
 async function fetchCanada(inn){
   try{
-    const r=await safeFetch(`https://health-products.canada.ca/api/drug/activeingredient/?lang=en&name=${encodeURIComponent(inn)}`);
+    const r=await safeFetch(`https://health-products.canada.ca/api/drug/activeingredient/?lang=en&ingredient=${encodeURIComponent(inn)}`);
     if(!r) return [];
     const codes=await r.json();
     if(!Array.isArray(codes)||!codes.length) return [];
-    const ids=[...new Set(codes.map(x=>x.drug_code).filter(Boolean))].slice(0,12);
+    const ids=[...new Set(codes.map(x=>x.drug_code).filter(Boolean))].slice(0,15);
     const results=[];
     await Promise.allSettled(ids.map(async id=>{
       try{
@@ -294,10 +294,24 @@ async function fetchCanada(inn){
         const arr=await r2.json();
         if(!arr?.length) return;
         const p=arr[0];
+        // Lấy đúng active substance từ API thay vì dùng inn gốc
+        const r3=await safeFetch(`https://health-products.canada.ca/api/drug/activeingredient/?lang=en&drug_code=${id}`);
+        let substanceName=inn.toUpperCase();
+        let strengthVal='—';
+        if(r3){
+          const ing=await r3.json();
+          if(Array.isArray(ing)&&ing.length){
+            substanceName=ing.map(i=>i.ingredient_name).filter(Boolean).join('; ')||inn.toUpperCase();
+            strengthVal=ing.map(i=>`${i.strength||''} ${i.strength_unit||''}`.trim()).filter(Boolean).join('; ')||'—';
+          }
+        }
         results.push({
           country:'🇨🇦 Canada',source:'Health Canada DPD',
-          brand:p.brand_name||'—',substance:inn.toUpperCase(),strength:'—',
-          form:p.dosage_form||'—',manufacturer:p.company_name||'—',
+          brand:p.brand_name||'—',
+          substance:substanceName,
+          strength:strengthVal,
+          form:p.dosage_form||'—',
+          manufacturer:p.company_name||'—',
           status:p.current_status_flag==='A'?'active':p.current_status_flag==='I'?'inactive':'unknown'
         });
       }catch{}
@@ -305,7 +319,6 @@ async function fetchCanada(inn){
     return results;
   }catch{return[];}
 }
-
 async function fetchSpain(inn){
   try{
     const r=await safeFetch(`https://cima.aemps.es/cima/rest/medicamentos?practiv1=${encodeURIComponent(inn)}&pageSize=20`);
